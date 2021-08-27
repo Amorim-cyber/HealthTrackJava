@@ -24,8 +24,8 @@ public abstract class Pessoa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public double getAltura() {
-		return altura;
+	public String getAltura() {
+		return Double.toString(altura).replace(".", ",");
 	}
 	public void setAltura(double altura) {
 		this.altura = altura;

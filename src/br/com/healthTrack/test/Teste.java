@@ -45,10 +45,17 @@ public class Teste {
 		new TelaRecuperar().printar();
 	}
 	
-	public static void chamarTelaMenu() {
-		telaMenu.printar();
+	public static void chamarTelaLogin(Scanner sc) {
+		telaLogin.printar();
 		
-		Scanner sc = new Scanner(System.in);
+		telaLogin.executar(sc.next());
+		
+		sc.close();
+		
+	}
+	
+	public static void chamarTelaMenu(Scanner sc) {
+		telaMenu.printar();
 		
 		telaMenu.executar(sc.next());
 		
@@ -56,10 +63,8 @@ public class Teste {
 		
 	}
 	
-	public static void chamarTelaCadastro() {
+	public static void chamarTelaCadastro(Scanner sc) {
 		telaCadastro.printar();
-		
-		Scanner sc = new Scanner(System.in);
 		
 		telaCadastro.executar(sc.next());
 		
@@ -67,10 +72,8 @@ public class Teste {
 		
 	}
 	
-	public static void chamarTelaPesos() {
+	public static void chamarTelaPesos(Scanner sc) {
 		telaPesos.printar();
-		
-		Scanner sc = new Scanner(System.in);
 		
 		telaPesos.executar(sc.next());
 		
@@ -78,10 +81,8 @@ public class Teste {
 		
 	}
 	
-	public static void chamarTelaDashboard() {
+	public static void chamarTelaDashboard(Scanner sc) {
 		telaDashboard.printar();
-		
-		Scanner sc = new Scanner(System.in);
 		
 		telaDashboard.executar(sc.next());
 		
@@ -89,22 +90,26 @@ public class Teste {
 	}
 	
 	public static void iniciarTelaMenu(ControleLogin controle) {
+		Scanner sc = new Scanner(System.in);
 		telaMenu = new TelaMenu(controle);
-		chamarTelaMenu();
+		chamarTelaMenu(sc);
 	}
 	
 	public static void iniciarTelaCadastro(ControleUsuario controle) {
+		Scanner sc = new Scanner(System.in);
 		telaCadastro = new TelaCadastro(controle);
-		chamarTelaCadastro();
+		chamarTelaCadastro(sc);
 	}
 	
 	public static void iniciarTelaPesos(ControlePesos controle) {
+		Scanner sc = new Scanner(System.in);
 		telaPesos = new TelaPesos(controle);
-		chamarTelaPesos();
+		chamarTelaPesos(sc);
 	}
 	
 	public static void iniciarTelaDashboard(ControlePesos controle) {
+		Scanner sc = new Scanner(System.in);
 		telaDashboard = new TelaDashboard(controle);
-		chamarTelaDashboard();
+		chamarTelaDashboard(sc);
 	}
 }

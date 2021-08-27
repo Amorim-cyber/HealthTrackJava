@@ -22,10 +22,10 @@ public class TelaPesos {
 		System.out.println("|  ID        DATA            KG     |");
 		System.out.println("|                                   |");
 		listar();
-		System.out.println("|Digite 1 para incluir um peso      |");
-		System.out.println("|Digite 2 para editar um peso       |");
-		System.out.println("|Digite 3 para deletar um peso      |");
-		System.out.println("|Digite 4 para voltar ao menu       |");
+		System.out.println("| Digite 1 para incluir um peso     |");
+		System.out.println("| Digite 2 para editar um peso      |");
+		System.out.println("| Digite 3 para deletar um peso     |");
+		System.out.println("| Digite 4 para voltar ao menu      |");
 		System.out.println("|___________________________________|");
 		System.out.println();
 		System.out.print(">>> ");
@@ -77,6 +77,7 @@ public class TelaPesos {
 	}
 	
 	public void executar(String opcao) {
+		Scanner sc = new Scanner(System.in);
 		switch(opcao) {
 		case "1":{
 			registrarPeso();
@@ -91,12 +92,12 @@ public class TelaPesos {
 			break;
 		}
 		case "4":{
-			Teste.chamarTelaMenu();
+			Teste.chamarTelaMenu(sc);
 			break;		
 		}
 		default:
 			Teste.chamarTelaInvalida();
-			Teste.chamarTelaPesos();
+			Teste.chamarTelaPesos(sc);
 		}
 	}
 	
@@ -112,9 +113,8 @@ public class TelaPesos {
 		System.out.print("-> Digite seu Peso: ");
 		double peso = sc.nextFloat();
 		controle.registrarNovoPeso(peso);
-		sc.close();
 		avisarSucesso("1");
-		Teste.chamarTelaPesos();
+		Teste.chamarTelaPesos(sc);
 	}
 	
 	private void editarPeso() {
@@ -124,14 +124,13 @@ public class TelaPesos {
 		long id = sc.nextLong();
 		if(controle.estaInvalido(id)) {
 			Teste.chamarTelaInvalida();
-			Teste.chamarTelaPesos();
+			Teste.chamarTelaPesos(sc);
 		}
 		System.out.print("-> Digite o novo Peso: ");
 		double peso = sc.nextFloat();
 		controle.editarPeso(id,peso);
-		sc.close();
 		avisarSucesso("2");
-		Teste.chamarTelaPesos();
+		Teste.chamarTelaPesos(sc);
 	}
 	
 	private void deletarPeso() {
@@ -141,12 +140,11 @@ public class TelaPesos {
 		long id = sc.nextLong();
 		if(controle.estaInvalido(id)) {
 			Teste.chamarTelaInvalida();
-			Teste.chamarTelaPesos();
+			Teste.chamarTelaPesos(sc);
 		}
 		controle.deletarPeso(id);
-		sc.close();
 		avisarSucesso("3");
-		Teste.chamarTelaPesos();
+		Teste.chamarTelaPesos(sc);
 	}
 
 	public ControlePesos getControle() {

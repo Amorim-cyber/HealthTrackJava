@@ -4,10 +4,10 @@ public class TelaInvalida {
 	
 	public void printar() {
 		System.out.println();
-		System.out.println(".___________________________________.");
-		System.out.println("|                                   |");
-		System.out.println("|          OPÇÃO INVÁLIDA!          |");
-		System.out.println("|___________________________________|");
+		System.err.println(".___________________________________.");
+		System.err.println("|                                   |");
+		System.err.println("|          OPÇÃO INVÁLIDA!          |");
+		System.err.println("|___________________________________|");
 		System.out.println();
 	}
 

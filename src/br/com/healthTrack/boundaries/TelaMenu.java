@@ -58,7 +58,7 @@ public class TelaMenu {
 	}
 	
 	public void executar(String opcao) {
-		
+		Scanner sc = new Scanner(System.in);
 		switch(opcao) {
 		case "1":{
 			controle2 = new ControleUsuario(controle.getConta().getUsuario());
@@ -90,7 +90,7 @@ public class TelaMenu {
 		}
 		default:
 			Teste.chamarTelaInvalida();
-			Teste.chamarTelaMenu();
+			Teste.chamarTelaMenu(sc);
 		}
 	}
 
@@ -103,9 +103,8 @@ public class TelaMenu {
 		System.out.print("-> Nova Senha: ");
 		String senha = sc.next();
 		controle.editarConta(login, senha);
-		sc.close();
 		avisarSucesso();
-		Teste.chamarTelaMenu();
+		Teste.chamarTelaMenu(sc);
 	}
 	
 	

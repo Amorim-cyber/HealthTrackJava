@@ -1,8 +1,6 @@
 package br.com.healthTrack.boundaries.login;
 
 import java.util.Scanner;
-
-import br.com.healthTrack.boundaries.TelaInvalida;
 import br.com.healthTrack.controller.ControleLogin;
 import br.com.healthTrack.test.Teste;
 
@@ -39,7 +37,8 @@ public class TelaLogin {
 	}
 	
 	public void avisarSucesso() {
-		
+	
+		System.out.println();
 		System.out.println(".___________________________________.");
 		System.out.println("|                                   |");
 		System.out.println("|     CONTA CRIADA COM SUCESSO!     |");
@@ -48,8 +47,19 @@ public class TelaLogin {
 		
 	}
 	
+	public void sair() {
+		System.out.println();
+		System.out.println(".___________________________________.");
+		System.out.println("|                                   |");
+		System.out.println("|        PROGRAMA FINALIZADO        |");
+		System.out.println("|                                   |");
+		System.out.println("| Adeus                             |");
+		System.out.println("|___________________________________|");
+		System.out.println();
+	}
+	
 	public void executar(String opcao) {
-		
+		Scanner sc = new Scanner(System.in);
 		switch(opcao) {
 		case "1":{
 			logar(controle);
@@ -64,12 +74,13 @@ public class TelaLogin {
 			break;		
 		}
 		case "4":{
+			sair();
 			System.exit(0);
 			break;
 		}
 		default:
 			Teste.chamarTelaInvalida();
-			Teste.main(null);
+			Teste.chamarTelaLogin(sc);
 		}
 	}
 	
@@ -87,29 +98,27 @@ public class TelaLogin {
 		System.out.print("-> Email: ");
 		String email = sc.next();
 		System.out.print("-> Altura: ");
-		double altura = sc.nextFloat();
+		double altura = Double.parseDouble(sc.next().replace(",", "."));
 		if(controle.estaInvalido(senha, senha2, email)) {
 			Teste.chamarTelaInvalida();
-			Teste.main(null);
+			Teste.chamarTelaLogin(sc);
 		}
 		controle.registrarConta(login, senha, nome, email, altura);
-		sc.close();
 		avisarSucesso();
-		Teste.main(null);
+		Teste.chamarTelaLogin(sc);
 	}
 	
 	private void logar(ControleLogin controle) {
 		Scanner sc = new Scanner(System.in);
-		new TelaInvalida().printar();
+		logar();
 		System.out.print("-> Login: ");
 		String login = sc.next();
 		System.out.print("-> Senha: ");
 		String senha = sc.next();
 		if(controle.logar(login,senha)==null) {
 			Teste.chamarTelaInvalida();
-			Teste.main(null);
+			Teste.chamarTelaLogin(sc);
 		};
-		sc.close();
 		Teste.iniciarTelaMenu(controle);
 	}
 	
@@ -118,7 +127,7 @@ public class TelaLogin {
 		Teste.chamarTelaRecuperar();
 		String email = sc.next();
 		controle.mandarEmail(email);
-		sc.close();
+		Teste.chamarTelaLogin(sc);
 	}
 	
 

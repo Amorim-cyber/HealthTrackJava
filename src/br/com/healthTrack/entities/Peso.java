@@ -38,8 +38,8 @@ public class Peso {
 		} 
 	}
 
-	public double getPeso() {
-		return peso;
+	public String getPeso() {
+		return Double.toString(peso).replace(".", ",");
 	}
 
 	public void setPeso(double peso) {

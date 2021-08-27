@@ -48,6 +48,7 @@ public class TelaCadastro {
 	
 	public void avisarSucesso() {
 		
+		System.out.println();
 		System.out.println(".___________________________________.");
 		System.out.println("|                                   |");
 		System.out.println("|         CADASTRO ALTERADO!        |");
@@ -57,10 +58,10 @@ public class TelaCadastro {
 	}
 	
 	public void executar(String opcao) {
-		
+		Scanner sc = new Scanner(System.in);
 		switch(opcao) {
 		case "1":{
-			Teste.chamarTelaMenu();
+			Teste.chamarTelaMenu(sc);
 			break;
 		}
 		case "2":{
@@ -69,7 +70,7 @@ public class TelaCadastro {
 		}
 		default:
 			Teste.chamarTelaInvalida();
-			Teste.chamarTelaCadastro();
+			Teste.chamarTelaCadastro(sc);
 		}
 	}
 	
@@ -81,15 +82,14 @@ public class TelaCadastro {
 		System.out.print("-> Email: ");
 		String email = sc.next();
 		System.out.print("-> Altura: ");
-		double altura = sc.nextFloat();
+		double altura = Double.parseDouble(sc.next());
 		if(controle.estaInvalido(email)) {
-			Teste.chamarTelaCadastro();
+			Teste.chamarTelaCadastro(sc);
 			Teste.main(null);
 		}
 		controle.editarUsuario(nome, email, altura);
-		sc.close();
 		avisarSucesso();
-		Teste.chamarTelaCadastro();
+		Teste.chamarTelaCadastro(sc);
 	}
 	
 	

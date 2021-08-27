@@ -1,5 +1,6 @@
 package br.com.healthTrack.controller;
 
+import java.text.DecimalFormat;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,7 +13,7 @@ public class ControlePesos {
 	private Usuario usuario;
 	
 	public boolean estaInvalido(long id) {
-		if(usuario.mostrarPesoPorID(id)==null) {
+		if( usuario.mostrarPesos() == null ||usuario.mostrarPesoPorID(id)==null) {
 			return true;
 		}
 		return false;
@@ -23,17 +24,17 @@ public class ControlePesos {
 	}
 
 	public void mostrarPesos() {
-		List<Peso> pesos = usuario.mostrarPesos().stream()
-		        .sorted(Comparator.comparingLong(Peso::getId).reversed())
-		        .collect(Collectors.toList());
-		
+		List<Peso> pesos = usuario.mostrarPesos();
 		if(pesos == null) {
 			System.out.println("|Nenhum peso registrado no momento  |");
-			System.out.println();
+			System.out.println("|                                   |");
 		}else {
+			pesos = pesos.stream()
+			        .sorted(Comparator.comparingLong(Peso::getId).reversed())
+			        .collect(Collectors.toList());
 			for(Peso peso : pesos) {
-				System.out.println("|  "+peso.getId()+"         "+peso.getData()+"      "+peso.getPeso()+"     |");
-				System.out.println();
+				System.out.println("|  "+peso.getId()+"         "+peso.getData()+"      "+peso.getPeso()+"   |");
+				System.out.println("|                                   |");
 			}
 		}
 	}
@@ -53,28 +54,32 @@ public class ControlePesos {
 	}
 
 	public void mostrarResultados() {
-		List<Peso> pesos = usuario.mostrarPesos().stream()
-		        .sorted(Comparator.comparingLong(Peso::getId).reversed())
-		        .collect(Collectors.toList());
-		
+		List<Peso> pesos = usuario.mostrarPesos();
 		if(pesos == null) {
 			System.out.println("|Nenhum peso registrado no momento  |");
-			System.out.println();
+			System.out.println("|                                   |");
 		}else {
-			
+			pesos = pesos.stream()
+			        .sorted(Comparator.comparingLong(Peso::getId).reversed())
+			        .collect(Collectors.toList());
 			for(Peso peso : pesos) {
-				int index = (int)(peso.getPeso()/120*22);
-				System.out.println("|  "+peso.getId()+" "+"█".repeat(index)+" ".repeat(22-index)+" |");
-				System.out.println();
+				int index = (int)(Double.parseDouble(peso.getPeso().replace(",", "."))/120*22);
+				System.out.println("| "+peso.getData()+" "+"#".repeat(index)+" ".repeat(22-index)+" |");
+				System.out.println("|                                   |");
 			}
 		}
 		
 	}
 
 	public void calcularIMC() {
-		double imc = usuario.mostrarPesos().get(usuario.mostrarPesos().size()-1).getPeso()/usuario.getAltura()*usuario.getAltura();
-		System.out.println("|IMC: "+imc+"                          |");
-		
+		List<Peso> pesos = usuario.mostrarPesos();
+		if(pesos == null) {
+			System.out.println("|IMC: 0                             |");
+		}else {
+			double imc = Double.parseDouble(pesos.get(pesos.size()-1).getPeso().replace(",", "."))/(Double.parseDouble(usuario.getAltura().replace(",", "."))*Double.parseDouble(usuario.getAltura().replace(",", ".")));
+			DecimalFormat df = new DecimalFormat("#.##");  
+			System.out.println("|IMC: "+df.format(imc).replace(".", ",")+"                         |");
+		}
 	}
 
 	

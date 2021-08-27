@@ -1,5 +1,6 @@
 package br.com.healthTrack.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.healthTrack.interfaces.InterfaceUsuario;
@@ -34,7 +35,12 @@ public class Usuario extends Pessoa implements InterfaceUsuario{
 
 	@Override
 	public void registrarNovoPeso(double peso) {
-		long id = pesos.size();
+		long id;
+		if(pesos==null) {
+			id = 0;
+			pesos = new ArrayList<Peso>();
+		}
+		else id = pesos.size();
 		pesos.add(new Peso(id,peso));
 		
 	}
