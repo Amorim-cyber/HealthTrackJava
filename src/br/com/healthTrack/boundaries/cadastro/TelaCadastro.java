@@ -82,7 +82,7 @@ public class TelaCadastro {
 		System.out.print("-> Email: ");
 		String email = sc.next();
 		System.out.print("-> Altura: ");
-		double altura = Double.parseDouble(sc.next());
+		double altura = Double.parseDouble(sc.next().replace(",", "."));
 		if(controle.estaInvalido(email)) {
 			Teste.chamarTelaCadastro(sc);
 			Teste.main(null);

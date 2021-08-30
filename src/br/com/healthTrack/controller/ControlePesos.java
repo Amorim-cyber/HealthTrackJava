@@ -33,7 +33,7 @@ public class ControlePesos {
 			        .sorted(Comparator.comparingLong(Peso::getId).reversed())
 			        .collect(Collectors.toList());
 			for(Peso peso : pesos) {
-				System.out.println("|  "+peso.getId()+"         "+peso.getData()+"      "+peso.getPeso()+"   |");
+				System.out.println("|  "+peso.getId()+"         "+peso.getData()+"      "+peso.getPeso()+"  |");
 				System.out.println("|                                   |");
 			}
 		}

@@ -1,5 +1,6 @@
 package br.com.healthTrack.entities;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,7 +40,9 @@ public class Peso {
 	}
 
 	public String getPeso() {
-		return Double.toString(peso).replace(".", ",");
+		DecimalFormat df = new DecimalFormat("#.##");
+		
+		return df.format(peso).replace(".", ",");
 	}
 
 	public void setPeso(double peso) {

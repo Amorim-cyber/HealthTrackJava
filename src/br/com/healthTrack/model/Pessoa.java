@@ -1,5 +1,6 @@
 package br.com.healthTrack.model;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import br.com.healthTrack.entities.Peso;
@@ -25,7 +26,8 @@ public abstract class Pessoa {
 		this.nome = nome;
 	}
 	public String getAltura() {
-		return Double.toString(altura).replace(".", ",");
+		DecimalFormat df = new DecimalFormat("#.##");
+		return df.format(altura).replace(".", ",");
 	}
 	public void setAltura(double altura) {
 		this.altura = altura;
