@@ -65,7 +65,7 @@ Segue guia de uso do sistema por telas
 
   Ponto inicial da aplicação do qual o usuário tem 4 opções: (1) - Logar na conta, (2) - criar uma nova, (3) - recuperar senha e (4) - sair do programa.
   
-  <img src="assets/telaLogin.png" style="border: solid grey; border-radius:4px"></img>
+  <img src="assets/telaLogin.PNG" style="border: solid grey; border-radius:4px"></img>
 
 <ol>
         <li><b>Logar na minha conta</b> encaminha o usuário para a tela de menu, contudo para tal precisa inputar um login e senha. O usuário obrigatoriamente precisa criar uma nova conta para entrar no sistema. Quando o programa é finalizado, toda informação adicionada ao sistema é deletada. </li>
@@ -87,7 +87,7 @@ Segue guia de uso do sistema por telas
 
   Após logar, o usuário vai visualizar a tela menu do qual ele tem 6 opções: (1) - Visualizar cadastro, (2) - Ir para o dashboard, (3) - Visualizar lista de pesos, (4) - Edição de conta, (5) - Deletar conta, (6) - Deslogar da sessão.
 
-  <img src="assets/telaMenu.png" style="border: solid grey; border-radius:4px"></img>
+  <img src="assets/telaMenu.PNG" style="border: solid grey; border-radius:4px"></img>
 
   <ol>
           <li><b>Ver cadastro</b> encaminha o usuário para a tela de cadastro </li>
@@ -105,7 +105,7 @@ Segue guia de uso do sistema por telas
 
   A tela de cadastro retorna para o usuário seus dados de nome, e-mail e altura. Ele tem 2 opções: (1) - voltar para o menu e (2) - editar dados.
 
-  <img src="assets/telaCadastro.png" style="border: solid grey; border-radius:4px"></img>
+  <img src="assets/telaCadastro.PNG" style="border: solid grey; border-radius:4px"></img>
 
   <ol>
           <li><b>Voltar ao menu</b> retorna para o menu </li>
@@ -116,7 +116,7 @@ Segue guia de uso do sistema por telas
 
   A tela de dashboard é uma tentativa de visualizar os pesos registrados em gráfico de barras por meio de "#". Inicialmente ele não vai ter pesos registrados, a adição de pesos é realizada na tela de pesos. Outra característica da tela é o retorno do Índice de massa corporal (IMC) do último peso registrado. O usuário tem apenas uma opção: (1) - voltar para o menu.
 
-  <img src="assets/telaDash.png" style="border: solid grey; border-radius:4px"></img>
+  <img src="assets/telaDash.PNG" style="border: solid grey; border-radius:4px"></img>
 
   <ol>
           <li><b>Voltar ao menu</b> retorna para o menu </li>
@@ -128,7 +128,7 @@ Segue guia de uso do sistema por telas
 
   A lista de pesos registra todos pesos, o usuário tem 4 opções: (1) - incluir um peso, (2) - editar um peso, (3) - deletar um peso, (4) - voltar para o menu.
 
-  <img src="assets/telaPeso.png" style="border: solid grey; border-radius:4px"></img>
+  <img src="assets/telaPeso.PNG" style="border: solid grey; border-radius:4px"></img>
 
   <ol>
           <li><b>Incluir peso</b> posibilita que o usuário inclua um novo peso para o sistema <i>(Não coloque caracteres diferentes de números quando for adicionar um novo peso)</i></li>
